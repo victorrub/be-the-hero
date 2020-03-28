@@ -1,0 +1,21 @@
+node_modules/**/*
+.expo/*
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+web-report/
+
+# macOS
+.DS_Store
+
+# [NodeJs] dependencies
+/node_modules
+
+# [NodeJs] .lock file
+package-lock.json
+yarn.lock
