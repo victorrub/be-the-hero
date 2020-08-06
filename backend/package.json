@@ -20,6 +20,7 @@
     "jest": "^25.2.3",
     "nodemon": "^2.0.2",
     "sucrase": "^3.12.1",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "typescript": "^3.9.7"
   }
 }
