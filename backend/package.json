@@ -5,7 +5,7 @@
   "author": "Victor Rubens <victorrub2013@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/app.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/app.ts",
     "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {
@@ -36,6 +36,7 @@
     "prettier": "^2.0.5",
     "supertest": "^4.0.2",
     "ts-node-dev": "^1.0.0-pre.56",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^3.9.7"
   }
 }
