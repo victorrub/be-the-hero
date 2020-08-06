@@ -1,6 +1,6 @@
 {
-  "name": "backend",
-  "version": "1.2.1",
+  "name": "be-the-hero_backend",
+  "version": "1.4.2",
   "main": "index.js",
   "author": "Victor Rubens <victorrub2013@outlook.com>",
   "license": "MIT",
