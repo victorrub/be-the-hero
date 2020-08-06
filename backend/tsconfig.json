@@ -5,13 +5,13 @@
     "lib": ["ES6"],
     "allowJs": true,
     "outDir": "./dist",
-    "rootDir": "old-src",
+    "rootDir": "./src",
     "removeComments": true,
     "strict": true,
     "noImplicitAny": true,
     "noEmitOnError": true,
     "strictNullChecks": true,
-    "typeRoots": ["./node_modules/@types", "old-src/@types"],
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
@@ -20,12 +20,15 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@controllers/*": ["old-src/controllers/*"],
-      "@data/*": ["old-src/data/*"],
-      "@loaders/*": ["old-src/loaders/*"],
-      "@models/*": ["old-src/models/*"],
-      "@services/*": ["old-src/services/*"]
+      "@controllers/*": ["./src/controllers/*"],
+      "@data/*": ["./src/data/*"],
+      "@loaders/*": ["./src/loaders/*"],
+      "@annotations/*": ["./src/loaders/api/annotations/*"],
+      "@models/*": ["./src/models/*"],
+      "@services/*": ["./src/services/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@errors/*": ["./src/utils/errors/*"]
     }
   },
-  "include": ["old-src/**/*"]
+  "include": ["src/**/*"]
 }
