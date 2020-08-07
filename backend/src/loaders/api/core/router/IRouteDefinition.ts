@@ -4,6 +4,4 @@ export interface IRouteDefinition {
   requestMethod: "get" | "post" | "put" | "delete";
 
   methodName: string;
-
-  alias?: string;
 }

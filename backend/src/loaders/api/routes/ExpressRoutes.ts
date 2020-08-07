@@ -1,27 +1,28 @@
 import { Router } from "express";
 
 import { IRouteDefinition } from "@loaders/api/core/router/IRouteDefinition";
-import { IRouter } from "@loaders/api/core/router/IRouter";
 import { IControllerBase } from "@loaders/app/core/IControllerBase";
 
-export class ExpressRoutes implements IRouter {
-  private _router = Router();
-
-  public ConfigureRoutes(controllers: Array<IControllerBase>): Promise<Router> {
+export class ExpressRoutes {
+  public static ConfigureRoutes(
+    controllers: Array<IControllerBase>
+  ): Promise<Router> {
     return new Promise((resolve, reject) => {
       try {
+        const expressRouter = Router();
+
         controllers
           .filter((controller) => controller.type === "api")
           .forEach((controller) => {
             const prefix = Reflect.getMetadata("prefix", controller.pureClass);
 
-            const routes: Array<IRouteDefinition> = Reflect.getMetadata(
+            const routes = Reflect.getMetadata(
               "routes",
               controller.pureClass
-            );
+            ) as Array<IRouteDefinition>;
 
             routes.forEach((route) => {
-              this._router[route.requestMethod](
+              expressRouter[route.requestMethod](
                 prefix + route.path,
                 (req, res) =>
                   controller.instantiatedClass[route.methodName](req, res)
@@ -29,7 +30,7 @@ export class ExpressRoutes implements IRouter {
             });
           });
 
-        resolve(this._router);
+        resolve(expressRouter);
       } catch (ex) {
         reject(
           new Error(

@@ -1,4 +1,4 @@
-import { RouteForwardSlash } from "@loaders/api/utils/RouteForwardSlash";
+import RouteForwardSlash from "@loaders/api/utils/RouteForwardSlash";
 
 export const ApiController = (prefix = ""): ClassDecorator => {
   return (target): void => {

@@ -11,8 +11,7 @@ class App {
   private async Main(): Promise<void> {
     try {
       const express = await this._configuration.ConfigureServices();
-
-      await this._configuration.CreateServer(express);
+      const server = await this._configuration.CreateServer(express);
     } catch (ex) {
       console.log(ServiceError.ProcessError("Main"));
       console.error(ex);
