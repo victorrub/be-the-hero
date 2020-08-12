@@ -2,6 +2,7 @@ import { Express } from "express";
 import { Server } from "http";
 import { createConnection, Connection } from "typeorm";
 
+import { Environment } from "@config/Environment";
 import { ExpressServer } from "@loaders/api/ExpressServer";
 import { ExpressRoutes } from "@loaders/api/routes/ExpressRoutes";
 import { ControllersServiceCollection } from "@loaders/app/ControllersServiceCollection";
@@ -9,6 +10,10 @@ import { DatabaseConnectionOptions } from "@loaders/database/DatabaseConnectionO
 
 export class Startup {
   private readonly _port = process.env.PORT || 3333;
+
+  constructor() {
+    Environment.SetEnv();
+  }
 
   public async ConfigureServices(dbConnection: Connection): Promise<Express> {
     if (!dbConnection) throw new Error(`Database connection required`);
