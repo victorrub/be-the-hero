@@ -27,9 +27,10 @@ export default function Incidents() {
 
     try {
       const { headers, data } = await api.get("/incidents", {
-        params: { page }
+        params: { page },
       });
-      setIncidents([...incidents, ...data.incidents]);
+
+      setIncidents([...incidents, ...data]);
       setTotal(headers["x-total-count"]);
       setPage(page + 1);
     } catch (err) {
@@ -60,14 +61,14 @@ export default function Incidents() {
       <FlatList
         data={incidents}
         style={styles.incidentList}
-        keyExtractor={incident => String(incident.id)}
+        keyExtractor={(incident) => String(incident.id)}
         //showsVerticalScrollIndicator={false}
         onEndReached={loadIncidents}
         onEndReachedThreshold={0.2}
         renderItem={({ item: incident }) => (
           <View style={styles.incident}>
             <Text style={styles.incidentProperty}>ONG:</Text>
-            <Text style={styles.incidentValue}>{incident.name}</Text>
+            <Text style={styles.incidentValue}>{incident.ong.name}</Text>
 
             <Text style={styles.incidentProperty}>CASO:</Text>
             <Text style={styles.incidentValue}>{incident.title}</Text>
@@ -76,7 +77,7 @@ export default function Incidents() {
             <Text style={styles.incidentValue}>
               {Intl.NumberFormat("pt-BR", {
                 style: "currency",
-                currency: "BRL"
+                currency: "BRL",
               }).format(incident.value)}
             </Text>
 
