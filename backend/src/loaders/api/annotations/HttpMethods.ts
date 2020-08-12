@@ -1,21 +1,23 @@
 import { SetHttpMethodAndSubRoute } from "@loaders/api/core/annotations/SetHttpMethodAndSubRoute";
 
-export const HttpGet = (path = "/"): MethodDecorator => {
+import { RouteOptions } from "../core/annotations/RouteOptions";
+
+export const HttpGet = (options?: RouteOptions): MethodDecorator => {
   return (target, propertyKey: string | symbol): void =>
-    SetHttpMethodAndSubRoute(target, propertyKey, path, "get");
+    SetHttpMethodAndSubRoute(target, propertyKey, "get", options);
 };
 
-export const HttpPost = (path = "/"): MethodDecorator => {
+export const HttpPost = (options?: RouteOptions): MethodDecorator => {
   return (target, propertyKey: string | symbol): void =>
-    SetHttpMethodAndSubRoute(target, propertyKey, path, "post");
+    SetHttpMethodAndSubRoute(target, propertyKey, "post", options);
 };
 
-export const HttpPut = (path = "/"): MethodDecorator => {
+export const HttpPut = (options?: RouteOptions): MethodDecorator => {
   return (target, propertyKey: string | symbol): void =>
-    SetHttpMethodAndSubRoute(target, propertyKey, path, "put");
+    SetHttpMethodAndSubRoute(target, propertyKey, "put", options);
 };
 
-export const HttpDelete = (path = "/"): MethodDecorator => {
+export const HttpDelete = (options?: RouteOptions): MethodDecorator => {
   return (target, propertyKey: string | symbol): void =>
-    SetHttpMethodAndSubRoute(target, propertyKey, path, "delete");
+    SetHttpMethodAndSubRoute(target, propertyKey, "delete", options);
 };

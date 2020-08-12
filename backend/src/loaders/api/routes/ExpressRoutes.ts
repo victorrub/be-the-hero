@@ -22,11 +22,19 @@ export class ExpressRoutes {
             ) as Array<IRouteDefinition>;
 
             routes.forEach((route) => {
-              expressRouter[route.requestMethod](
-                prefix + route.path,
-                (req, res) =>
-                  controller.instantiatedClass[route.methodName](req, res)
-              );
+              if (route.routeValidator)
+                expressRouter[route.requestMethod](
+                  prefix + route.path,
+                  route.routeValidator,
+                  async (req, res) =>
+                    controller.instantiatedClass[route.methodName](req, res)
+                );
+              else
+                expressRouter[route.requestMethod](
+                  prefix + route.path,
+                  async (req, res) =>
+                    controller.instantiatedClass[route.methodName](req, res)
+                );
             });
           });
 

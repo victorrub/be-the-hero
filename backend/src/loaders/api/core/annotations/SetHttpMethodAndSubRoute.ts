@@ -1,10 +1,11 @@
 import { IRouteDefinition } from "../router/IRouteDefinition";
+import { RouteOptions } from "./RouteOptions";
 
 export function SetHttpMethodAndSubRoute(
   target: any,
   propertyKey: string | symbol,
-  path: string,
-  requestMethod: "get" | "post" | "put" | "delete"
+  requestMethod: "get" | "post" | "put" | "delete",
+  options = {} as RouteOptions
 ): void {
   if (!Reflect.hasMetadata("routes", target.constructor))
     Reflect.defineMetadata("routes", [], target.constructor);
@@ -17,8 +18,9 @@ export function SetHttpMethodAndSubRoute(
 
   const routeDefinition: IRouteDefinition = {
     requestMethod,
-    path,
+    path: options.path || "/",
     methodName: propertyKey,
+    routeValidator: options.validator,
   };
 
   routes.push(routeDefinition);
