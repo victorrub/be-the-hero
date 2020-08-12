@@ -1,13 +1,20 @@
 import { Express } from "express";
 import supertest from "supertest";
 
-import { ExpressServerSetup } from "../utils/ExpressServerSetup";
+import {
+  ExpressServerSetup,
+  CloseConnection,
+} from "../utils/ExpressServerSetup";
 
 describe("API => Check the service status", () => {
   let express: Express;
 
   beforeAll(async () => {
     express = await ExpressServerSetup();
+  });
+
+  afterAll(async () => {
+    await CloseConnection();
   });
 
   it("should connect at the server and return status 200 when request to default route", async () => {

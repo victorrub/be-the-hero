@@ -143,3 +143,4 @@ yarn.lock
 
 # Database
 *.sqlite
+*.test.sqlite
