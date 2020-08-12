@@ -1,4 +1,4 @@
-import { ServiceError } from "@errors/ServiceError";
+import { ServiceError } from "@models/errors/ServiceError";
 
 describe("Errors => Service Error", () => {
   it("should receive the friendly error message to be displayed indicating which method triggered the error", () => {

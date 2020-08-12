@@ -25,9 +25,10 @@
       "@loaders/*": ["./src/loaders/*"],
       "@annotations/*": ["./src/loaders/api/annotations/*"],
       "@models/*": ["./src/models/*"],
+      "@errors/*": ["./src/models/errors/*"],
+      "@validators/*": ["./src/models/validators/*"],
       "@services/*": ["./src/services/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@errors/*": ["./src/utils/errors/*"]
+      "@utils/*": ["./src/utils/*"]
     }
   },
   "include": ["src/**/*"]

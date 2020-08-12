@@ -140,3 +140,6 @@ temp/
 # [NodeJs] .lock file
 package-lock.json
 yarn.lock
+
+# Database
+*.sqlite

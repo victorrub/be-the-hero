@@ -1,4 +1,4 @@
-import { ServiceStatus } from "@models/ServiceStatus";
+import { ServiceStatus } from "@models/service-models/ServiceStatus";
 
 describe("Service Status Model", () => {
   it("should be able to create a Service Status object", () => {

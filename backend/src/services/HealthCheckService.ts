@@ -1,4 +1,4 @@
-import { ServiceStatus } from "@models/ServiceStatus";
+import { ServiceStatus } from "@models/service-models/ServiceStatus";
 
 export class HealthCheckService {
   public Check(): ServiceStatus {
