@@ -15,4 +15,5 @@ export async function DatabaseSetup(): Promise<Connection> {
 
 export async function CloseConnection(connection: Connection): Promise<void> {
   await connection.close();
+  await connection.dropDatabase();
 }
