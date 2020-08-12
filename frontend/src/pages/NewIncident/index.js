@@ -18,13 +18,17 @@ export default function NewIncident() {
   async function handleRegisterIncident(event) {
     event.preventDefault();
 
-    const data = { title, description, value };
+    const data = {
+      title,
+      description,
+      value: checkInputValueAndConvertToDouble(value),
+    };
 
     try {
       await api.post("/incidents", data, {
         headers: {
-          Authorization: ongId
-        }
+          Authorization: ongId,
+        },
       });
 
       history.push("/profile");
@@ -32,6 +36,12 @@ export default function NewIncident() {
       console.log(` > A requisição gerou um erro : ${err}`);
       alert("Erro ao cadastrar caso, tente novamente.");
     }
+  }
+
+  function checkInputValueAndConvertToDouble(value) {
+    if (!/\d+,\d{2}/.test(value)) return Number(value).toFixed(2);
+
+    return Number(value.replace(/[^0-9.-]+/g, ".")).toFixed(2);
   }
 
   return (
@@ -56,19 +66,19 @@ export default function NewIncident() {
           <input
             placeholder="Título do Caso"
             value={title}
-            onChange={event => setTitle(event.target.value)}
+            onChange={(event) => setTitle(event.target.value)}
           />
 
           <textarea
             placeholder="Descrição"
             value={description}
-            onChange={event => setDescription(event.target.value)}
+            onChange={(event) => setDescription(event.target.value)}
           />
 
           <input
             placeholder="Valor em reais"
             value={value}
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
           />
 
           <button type="submit" className="button">

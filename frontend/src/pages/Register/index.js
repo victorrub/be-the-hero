@@ -24,7 +24,7 @@ export default function Register() {
     try {
       const response = await api.post("/ongs", data);
 
-      alert(`Seu ID de acesso: ${response.data.id}`);
+      alert(`Seu ID de acesso: ${response.data.userId}`);
 
       history.push("/");
     } catch (err) {
@@ -55,34 +55,34 @@ export default function Register() {
           <input
             placeholder="Nome da Ong"
             value={name}
-            onChange={event => setName(event.target.value)}
+            onChange={(event) => setName(event.target.value)}
           />
 
           <input
             type="email"
             placeholder="E-mail"
             value={email}
-            onChange={event => setEmail(event.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
           />
 
           <input
             placeholder="WhatsApp"
             value={whatsapp}
-            onChange={event => setWhatsapp(event.target.value)}
+            onChange={(event) => setWhatsapp(event.target.value)}
           />
 
           <div className="input-group">
             <input
               placeholder="Cidade"
               value={city}
-              onChange={event => setCity(event.target.value)}
+              onChange={(event) => setCity(event.target.value)}
             />
 
             <input
               placeholder="UF"
               style={{ width: 80 }}
               value={uf}
-              onChange={event => setUf(event.target.value)}
+              onChange={(event) => setUf(event.target.value)}
             />
           </div>
 

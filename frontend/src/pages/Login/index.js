@@ -16,7 +16,7 @@ export default function Login() {
     event.preventDefault();
 
     try {
-      const { data } = await api.post("/sessions", { id });
+      const { data } = await api.post("/session", { id });
 
       localStorage.setItem("ongId", id);
       localStorage.setItem("ongName", data.name);
@@ -39,7 +39,7 @@ export default function Login() {
           <input
             placeholder="Sua ID"
             value={id}
-            onChange={event => setId(event.target.value)}
+            onChange={(event) => setId(event.target.value)}
           />
 
           <button type="submit" className="button">

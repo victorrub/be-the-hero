@@ -1,0 +1,27 @@
+[
+  {
+    "name": "development",
+    "type": "sqlite",
+    "database": "./src/data/BeTheHeroDB.sqlite",
+    "synchronize": false,
+    "logging": false,
+    "entities": ["src/models/**/*.ts"],
+    "migrations": ["src/data/migrations/**/*.ts"],
+    "subscribers": ["src/data/subscribers/**/*.ts"],
+    "cli": {
+      "entitiesDir": "./src/models",
+      "migrationsDir": "./src/data/migrations",
+      "subscribersDir": "./src/data/subscribers"
+    }
+  },
+  {
+    "name": "test",
+    "type": "sqlite",
+    "database": "./src/data/BeTheHeroDB.test.sqlite",
+    "synchronize": false,
+    "logging": false,
+    "entities": ["src/models/**/*.ts"],
+    "migrations": ["src/data/migrations/**/*.ts"],
+    "subscribers": ["src/data/subscribers/**/*.ts"]
+  }
+]
